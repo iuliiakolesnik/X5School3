@@ -2,81 +2,103 @@ import java.util.*;
 
 public class Task2 {
 
-    static class Animal
-    {
+    static class Animal {
         String food;
         String location;
 
-        void makeNoise(){ System.out.println("Такое-то животное шумит");}
-        void eat(){System.out.println("Такое-то животное ест");}
-        void sleep(){System.out.println("Такое-то животное спит");}
+        void makeNoise() {
+            System.out.println("Такое-то животное шумит");
+        }
 
-        Animal(){}
+        void eat() {
+            System.out.println("Такое-то животное ест");
+        }
 
-        Animal (String food, String location)
-        {
+        void sleep() {
+            System.out.println("Такое-то животное спит");
+        }
+
+        Animal() {
+        }
+
+        Animal(String food, String location) {
             this.food = food;
             this.location = location;
         }
 
     }
 
-    static class Dog extends Animal
-    {
+    static class Dog extends Animal {
         String breed;
 
-        void makeNoise(){ System.out.println("Собака шумит");}
-        void eat(){System.out.println("Собака ест");}
-        void sleep(){System.out.println("Собака спит");}
+        void makeNoise() {
+            System.out.println("Собака шумит");
+        }
 
-        Dog (String food, String location, String breed)
-        {
-            super(food,location);
+        void eat() {
+            System.out.println("Собака ест");
+        }
+
+        void sleep() {
+            System.out.println("Собака спит");
+        }
+
+        Dog(String food, String location, String breed) {
+            super(food, location);
             this.breed = breed;
         }
     }
 
-    static class Cat extends Animal
-    {
+    static class Cat extends Animal {
         String color;
 
-        void makeNoise(){ System.out.println("Кошка шумит");}
-        void eat(){System.out.println("Кошка ест");}
-        void sleep(){System.out.println("Кошка спит");}
+        void makeNoise() {
+            System.out.println("Кошка шумит");
+        }
 
-        Cat (String food, String location, String color)
-        {
+        void eat() {
+            System.out.println("Кошка ест");
+        }
+
+        void sleep() {
+            System.out.println("Кошка спит");
+        }
+
+        Cat(String food, String location, String color) {
             super(food, location);
             this.color = color;
         }
     }
 
-    static class Horse extends Animal
-    {
+    static class Horse extends Animal {
         int win;
 
-        void makeNoise(){ System.out.println("Лошадь шумит");}
-        void eat(){System.out.println("Лошадь ест");}
-        void sleep(){System.out.println("Лошадь спит");}
+        void makeNoise() {
+            System.out.println("Лошадь шумит");
+        }
 
-        Horse (String food, String location, int win)
-        {
+        void eat() {
+            System.out.println("Лошадь ест");
+        }
+
+        void sleep() {
+            System.out.println("Лошадь спит");
+        }
+
+        Horse(String food, String location, int win) {
             super(food, location);
             this.win = win;
         }
     }
 
 
-    static class Doctor
-    {
-        void threadAnimal(Animal animal)
-        {
+    static class Doctor {
+        void threadAnimal(Animal animal) {
             System.out.println("Food: " + animal.food + " Location: " + animal.location);
         }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Doctor doctor = new Doctor();
 
         ArrayList<Animal> animals = new ArrayList<Animal>();
@@ -89,13 +111,11 @@ public class Task2 {
         animals.add(cat);
         animals.add(horse);
 
-        for (Animal i : animals)
-        {
+        for (Animal i : animals) {
             doctor.threadAnimal(i);
+            i.makeNoise();
+            i.eat();
+            i.sleep();
         }
-
-        dog.makeNoise();
-        cat.eat();
-        horse.sleep();
     }
 }

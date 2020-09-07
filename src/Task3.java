@@ -2,23 +2,24 @@ import java.util.*;
 
 public class Task3 {
 
-    static class Student
-    {
+    static class Student {
         String firstName;
         String lastName;
         String group;
         double averageMark;
 
-        int getScholarship()
-        {
-            if (this.averageMark == 5) return 100;
-            else return 80;
+        int getScholarship() {
+            if (this.averageMark == 5) {
+                return 100;
+            } else {
+                return 80;
+            }
         }
 
-        Student(){}
+        Student() {
+        }
 
-        Student (String firstName, String lastName, String group, double averageMark)
-        {
+        Student(String firstName, String lastName, String group, double averageMark) {
             this.firstName = firstName;
             this.lastName = lastName;
             this.group = group;
@@ -26,25 +27,24 @@ public class Task3 {
         }
     }
 
-    static class Aspirant extends Student
-    {
+    static class Aspirant extends Student {
         boolean science_work;
 
-        int getScholarship()
-        {
-            if (super.averageMark == 5) return 200;
-            else return 180;
+        int getScholarship() {
+            if (super.averageMark == 5) {
+                return 200;
+            } else {
+                return 180;
+            }
         }
 
-        Aspirant (String firstName, String lastName, String group, double averageMark, boolean science_work)
-        {
+        Aspirant(String firstName, String lastName, String group, double averageMark, boolean science_work) {
             super(firstName, lastName, group, averageMark);
             this.science_work = science_work;
         }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
 
         ArrayList<Student> students = new ArrayList<Student>();
 
@@ -60,8 +60,7 @@ public class Task3 {
         students.add(aspirant2);
         students.add(student3);
 
-        for (Student i : students)
-        {
+        for (Student i : students) {
             System.out.println(i.getScholarship());
         }
 
