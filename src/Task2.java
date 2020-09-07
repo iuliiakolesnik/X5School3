@@ -3,8 +3,24 @@ import java.util.*;
 public class Task2 {
 
     static class Animal {
-        String food;
-        String location;
+        private String food;
+        private String location;
+
+        public String getFood() {
+            return this.food;
+        }
+
+        public String getLocation() {
+            return this.location;
+        }
+
+        public void setFood(String food) {
+            this.food = food;
+        }
+
+        public void setLocation(String location) {
+            this.location = location;
+        }
 
         void makeNoise() {
             System.out.println("Такое-то животное шумит");
@@ -29,7 +45,15 @@ public class Task2 {
     }
 
     static class Dog extends Animal {
-        String breed;
+        private String breed;
+
+        public String getBreed() {
+            return this.breed;
+        }
+
+        public void setBreed(String breed) {
+            this.breed = breed;
+        }
 
         void makeNoise() {
             System.out.println("Собака шумит");
@@ -39,10 +63,6 @@ public class Task2 {
             System.out.println("Собака ест");
         }
 
-        void sleep() {
-            System.out.println("Собака спит");
-        }
-
         Dog(String food, String location, String breed) {
             super(food, location);
             this.breed = breed;
@@ -50,7 +70,15 @@ public class Task2 {
     }
 
     static class Cat extends Animal {
-        String color;
+        private String color;
+
+        public String getColor() {
+            return this.color;
+        }
+
+        public void setColor(String color) {
+            this.color = color;
+        }
 
         void makeNoise() {
             System.out.println("Кошка шумит");
@@ -60,10 +88,6 @@ public class Task2 {
             System.out.println("Кошка ест");
         }
 
-        void sleep() {
-            System.out.println("Кошка спит");
-        }
-
         Cat(String food, String location, String color) {
             super(food, location);
             this.color = color;
@@ -71,7 +95,15 @@ public class Task2 {
     }
 
     static class Horse extends Animal {
-        int win;
+        private int win;
+
+        public int getWin() {
+            return this.win;
+        }
+
+        public void setWin(int win) {
+            this.win = win;
+        }
 
         void makeNoise() {
             System.out.println("Лошадь шумит");
@@ -79,10 +111,6 @@ public class Task2 {
 
         void eat() {
             System.out.println("Лошадь ест");
-        }
-
-        void sleep() {
-            System.out.println("Лошадь спит");
         }
 
         Horse(String food, String location, int win) {
@@ -94,7 +122,7 @@ public class Task2 {
 
     static class Doctor {
         void threadAnimal(Animal animal) {
-            System.out.println("Food: " + animal.food + " Location: " + animal.location);
+            System.out.println("Food: " + animal.getFood() + " Location: " + animal.getLocation());
         }
     }
 
@@ -103,13 +131,15 @@ public class Task2 {
 
         ArrayList<Animal> animals = new ArrayList<Animal>();
 
-        Dog dog = new Dog("мясо", "Тольятти", "Корги");
+        Animal dog = new Dog("мясо", "Тольятти", "Корги");
         Cat cat = new Cat("молоко", "Москва", "Голубая");
         Horse horse = new Horse("овес", "Самара", 5);
+        Animal animal = new Animal("капуста", "Екатеринбург");
 
         animals.add(dog);
         animals.add(cat);
         animals.add(horse);
+        animals.add(animal);
 
         for (Animal i : animals) {
             doctor.threadAnimal(i);
